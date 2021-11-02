@@ -1,6 +1,12 @@
+variable "aws_region" {
+  default = "us-west-2"
+}
+
 variable "cluster_name" {}
 
-provider "aws" {}
+provider "aws" {
+  region = var.aws_region
+}
 
 data "aws_eks_cluster" "cluster" {
   name = var.cluster_name
